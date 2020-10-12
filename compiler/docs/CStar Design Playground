@@ -1,0 +1,48 @@
+
+Not really inheritance.
+Just Partial Classes.
+What does it mean? So:
+An extended class has a copy of all the attributes of the base class.
+Also, it has the copy of the methods. No overrides! @ implements is only for interfaces.
+
+public partial class Shape extends Object is Transformed, Measured {
+
+    private vector3 transform;
+
+}
+
+@implements
+public function rotate(float angle) Shape shape {
+    p.transform = rotate(p.transform)
+}
+
+public function print() Shape shape {
+    print("I a am shape!");
+}
+
+
+public class Rectangle completes Shape {
+
+    private float width, height;
+
+}
+
+
+public function print() Rectangle rectangle {
+
+    print("I a am rectangle!");
+
+}
+
+
+States and objects?
+Here:
+
+// cannot be terminal
+@states(off = 0, on = 1)
+public class LightBulb {
+
+}
+
+
+// initialization

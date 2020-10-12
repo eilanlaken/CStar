@@ -1,0 +1,176 @@
+
+need to:
+- sort out inheritance
+- think about annotations: implemented as part of the grammar.
+  user (programmer) can look into those files and add rules.
+  core language comes with a set of annotations:
+    @ benchmarked
+    @ template
+    @ ordered
+    @ states
+    @ state
+    @ implements
+    @ constructor
+    ...[think about additional annotations that are surely useful]
+- sort out relations and relation queries
+
+Scope: default (public), public, shared, private.
+Refers to FILES only.
+
+"inheritance":
+
+- Not really inheritance.
+- Just Partial Classes.
+What does it mean? So:
+- An extended class has a copy of all the attributes of the base class.
+- It has the copy of the methods. With overrides.
+- cannot "new P p" if p is a partial class. Use setters instead.
+- can extend non-partial classes
+- to signify a non extendable class, use the qualifier "terminal"
+
+public partial class Shape extends Object is Transformed, Measured {
+    private vector3 transform;
+}
+
+@implements
+public function rotate(float angle) Shape shape {
+    p.transform = rotate(p.transform)
+}
+
+public function print() Shape shape {
+    print("I a am shape!");
+}
+
+public class Rectangle completes Shape {
+    private float width, height;
+}
+
+public function print() Rectangle rectangle {
+    print("I a am rectangle!");
+}
+
+// initialization example:
+
+public interface Interactive {
+    public function mouseOver() Interactive i;
+    public function mouseDown() Interactive i;
+    public function mouseUp() Interactive i;
+}
+public interface Updated {
+    public function update(float deltaTime) Updated u;
+}
+
+public partial class Widget is Interactive, Updated {
+    public string id;
+    shared vector2 position;
+}
+
+shared function setWidget(string id, vector2 position) Widget w {
+    w.id = id;
+    w.position = position;
+}
+
+public partial class Button extends Widget {
+    shared string label;
+    private Sound sound;
+}
+
+private function setButton(constant string id, vector2 position, constant string label, Sound sound) Button b {
+    b.setWidget(id, position);
+    b.label = label;
+    b.sound = sound;
+}
+
+@states
+public terminal class MyButton extends Button {
+    private Timer timer; // <- internal timer.
+}
+
+
+class Model is Updated {
+
+}
+
+class Material is Updated {
+
+}
+
+class RenderUnit is Model + Material {
+
+}
+
+// resolve conflict.
+
+class RenderUnit is Model + Material - this does not make RenderUnit r Updated?
+Yes it does. Only resolve the conflict.
+Think if only 1 component is Updated. You'd still want to sent RenderUnit to be update()ed.
+In the case the r[Updated] is updated.
+
+class RenderUnit is Model + Material {
+
+}
+
+
+
+static arrays: are class primitives.
+only 1, 2 and 3 dimensional arrays.
+only rectangular volumes.
+[][] is not an array of arrays. it is simply a way to refer to the data.
+
+static arrays have the following attributes:
+int[] a: a.length, a.width
+int[][] a: a.length, a.width, a.height
+int[][][] a: a.length, a.width, a.height, a.depth
+
+new int[20] a;
+a[2] = 4;
+new int[][] a = [1,2,3,
+                 4,5,6];
+new int[rows][cols] x;
+
+for loops:
+
+// no?
+for i : 0 ... a.size-1 step 1 {
+    for j : (i ... 10 step 2) {
+
+    }
+}
+no.
+
+so what yes? this.
+
+for (int i : 0...10) {
+
+}
+
+for (int i : 0...10) step 2 {
+
+}
+
+for (Entity entity : entities) {
+
+}
+
+/////////
+
+multi threading.
+
+public function main(string[] args) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

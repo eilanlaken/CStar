@@ -1,0 +1,52 @@
+primitives
+classes
+primitive classes
+catalogs
+interfaces
+
+// new features:
+entities
+relations
+databases
+
+example:
+
+public database cityDB {
+
+    public relation father(Person x, Person y);
+    public relation mother(Person x, Person y);
+    public relation siblings(Person x, Person y);
+    public relation enemies(Person x, Person y);
+    public relation friends(Person x, Person y);
+    public relation owes(Person x, Person y, int amount);
+
+    private City city;
+
+}
+
+Can only extend abstract classes.
+
+public base class A can be transformed {
+
+}
+
+public class B is A {
+
+}
+
+primitive classes are not extending Object.
+primitive classes cannot be abstract (base). -> primitive classes cannot be extended.
+primitive classes cannot implement interfaces.
+
+public class B is Object {
+
+}
+
+public base class Object {
+
+    Object[] observers;
+    Object[] observes;
+
+}
+
+

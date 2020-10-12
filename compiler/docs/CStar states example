@@ -1,0 +1,199 @@
+
+class Sphere is Updated {
+    shared vector3 position;
+    shared vector3 velocity;
+}
+
+function update(float delta) A a {
+    // do internal important computation:
+    a.position += delta * velocity
+}
+
+terminal class ColoredSphere extends Sphere {
+    shared Color currentColor;
+}
+
+// garbage
+function update(float delta) ColoredSphere coloredSphere {
+    (Sphere partof coloredSphere).update(delta);
+    currentColor.randomize();
+}
+
+
+The problem with inheritance:
+classes don't have functions.
+all functions are declared outside of any class - and are simply a syntax shortcut.
+For example: function f() A a {} is simple function f(constant A a) {}.
+Implementing interfaces is only a PROMISE that such functions exist.
+Interface functions MUST be public.
+partial classes are not allowed to implement interfaces - as they don't have the full picture?
+No.
+
+
+class part_1 {
+
+}
+
+class part_2 {
+
+}
+
+///
+class A extends part_1 + part_2 {
+
+}
+///
+
+
+class Sphere is Rendered {
+
+}
+
+render() sphere;
+
+class GameObject is Updated {
+
+}
+
+update() gameObj;
+
+class Timer is Updated {
+    private float elapsedTime;
+}
+
+update() timer;
+
+class Ball is Sphere + GameObject + Timer {
+
+} -->
+
+update() ball {
+    Sphere s = (Sphere) ball;
+    s.update();
+}
+
+render() ball;
+
+
+
+class A {
+
+    public function update() A a {}
+
+}
+
+a.update()
+
+
+partial class A is Updated {
+    int a;
+}
+
+public function set(int a) A a_obj {
+    a_obj.a = a;
+}
+
+update() A a {a.x++;}
+
+class B {
+    int b;
+}
+
+public function (int b) returns B {
+    new B b_obj;
+    b_obj.b = b;
+    return b_obj;
+} same as new A(a);
+
+public function set(B b)
+
+shared flip() B b { -> shared across chapter
+
+}
+
+
+partial class A is Updated {
+
+}
+
+class B is Updated {
+
+}
+
+class C = A + B + {
+
+}
+
+public function (a,b,c) C {
+    new C cobj;
+    (A part of cobj).set(a);
+    (B part of cobj).set(b);
+    cobj.c = c;
+}
+
+public function update() C cobj {
+
+}
+
+partial class A {
+
+}
+
+fn() A a {}
+
+class B extends A {
+
+}
+
+partial classes? no
+terminal classes? no
+part of operator? yes
+
+class A {
+    int x;
+}
+
+@ constructor
+public function (int x) returns A {
+    new A a;
+    a.x = x;
+    return a;
+} same as new A(x);
+
+class C = A + B + {
+
+}
+
+function (int a, int b, int c) returns C {
+    new C c;
+    c[B] = new B(a, b);
+
+    ...
+    return c;
+} same as new C(a,b,c);
+
+class A = B + C + {
+
+}
+
+@template(T, K, V)
+class ColoredSphere is SphereModel + ColoredMaterial {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

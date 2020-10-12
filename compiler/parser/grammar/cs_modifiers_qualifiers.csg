@@ -1,0 +1,7 @@
+
+ACCESS_MODIFIER: empty | public | private | shared
+
+CONSTANT: empty | constant
+
+ATOMIC: empty | atomic
+

@@ -1,0 +1,21 @@
+
+IF_BLOCK: if EXPRESSION SCOPE
+          |
+          if EXPRESSION NON_EMPTY_STATEMENT
+
+WHILE_BLOCK: while EXPRESSION SCOPE
+             |
+             while EXPRESSION NON_EMPTY_STATEMENT
+
+DO_WHILE_BLOCK: do SCOPE while EXPRESSION ;
+
+FOR_BLOCK: for FOR_DESCRIPTOR SCOPE
+           |
+           for FOR_DESCRIPTOR NON_EMPTY_STATEMENT
+
+FOR_DESCRIPTOR: ( int identifier : EXPRESSION dot_dot_dot EXPRESSION )
+                |
+                ( int identifier : EXPRESSION dot_dot_dot EXPRESSION ) step EXPRESSION
+                |
+                ( identifier identifier : expression )
+
