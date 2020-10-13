@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e7a10d2-56de-4776-a641-326184ae0f30" name="Default Changelist" comment="" />
+    <list default="true" id="5e7a10d2-56de-4776-a641-326184ae0f30" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/User.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +16,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1iSNKeeUzqz79ZDVvhzvIj62Fd6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -27,11 +33,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\annotations\1.0.0" />
+      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\annotations" />
       <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\statements" />
       <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\classes" />
       <recent name="C:\Users\User\PycharmProjects\CStar\compiler\docs" />
-      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar" />
-      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\PycharmProjects\CStar\cstar_examples\containers" />

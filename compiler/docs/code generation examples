@@ -13,5 +13,5 @@ class npc is GameObject + Agent + KnowledgeBase {
 resulting c code:
 
 typedef struct {
-    
+
 } system_npc;

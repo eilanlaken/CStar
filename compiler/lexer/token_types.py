@@ -133,8 +133,9 @@ class TokenType(AutoName):
 
     # synchronization
     Atomic = (96, re.compile(r'\batomic\b'), True)
-
+    ProceedWhen = (97, re.compile(r'\bproceed[^\S]+when\b'), True)
+    Signal = (98, re.compile(r'\bsignal\b'), True)
     # annotations
-    At = (97, re.compile(r'\@'), False)
+    At = (99, re.compile(r'\@'), False)
 
 

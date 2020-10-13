@@ -161,15 +161,58 @@ public function main(string[] args) {
 }
 
 
+public interface task {
+
+}
+
+public class collect_garbage is task {
+
+}
+
+public function run() task t {
+
+}
+
+// threads should be an operating system thing.
+// can abstract commonalities to bring a library.
+// everything is inside a containing thread.
+
+thread main {
+    halt(5000);
+}
+
+thread functions?
+
+public thread main {
 
 
+}
 
+public function run() thread t {
 
+}
 
+public function halt(int millis) thread t {
 
+}
 
+public function terminate() thread t {
 
+}
 
+public class gate {
+    boolean open;
+}
+
+public atomic function x() {
+    proceed when a();
+        // critical processing
+    signal;
+}
+
+public atomic function y() {
+
+}
 
 
 
