@@ -1,6 +1,8 @@
 import tkinter as tk
 import ctypes
 from ide.ui_components.main_menu import *
+from ide.ui_components.console_view import *
+from ide.ui_components.top_toolbar import *
 
 user32 = ctypes.windll.user32
 
@@ -9,14 +11,48 @@ class GameCodeWindow:
 
     screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
-    def __init__(self, current_project=None, project_preferences=None):
+    def __init__(self, application_context, current_project=None, project_preferences=None):
+        self.application_context = application_context
         self.current_project = current_project
         self.project_preferences = project_preferences
         self.root = tk.Tk()
+        self.root.iconbitmap(r'C:\Users\User\PycharmProjects\CStar\ide\assets\gameCodeIcon.ico')
         self.root.title('[project name place holder].....  - GameCode')
-        set_menu_bar(self.root)
+        self.root.geometry('{}x{}'.format(int(GameCodeWindow.screensize[0]*0.8), int(GameCodeWindow.screensize[1]*0.8)))
+        self.root['bg'] = 'gray5'
+        init_menu_bar(self.root)
+        # layout all of the main containers
+        self.root.grid_rowconfigure(1, weight=1)
+        self.root.grid_columnconfigure(0, weight=1)
+        create_top_frame(self.root, application_context)
+        create_center_region(self.root)
+        create_bottom_frame(self.root)
 
     def launch(self):
         self.root.mainloop()
 
 
+def create_top_frame(root, application_context):
+    top_frame = TopToolBar(application_context, root, ['proj 1 > ', 'hisfgs'])
+    top_frame.pack(anchor=W, fill=X, expand=FALSE)
+
+
+def create_center_region(root):
+    center_frame = Frame(root)
+    center = PanedWindow(center_frame, bg='grey10', orient=VERTICAL, sashwidth=8, showhandle=True)
+    development_view = PanedWindow(center, bg='white', orient=HORIZONTAL, sashwidth=8, showhandle=True)
+    project_hierarchy = Frame(development_view, bg='white', width=300, height=550)
+    code_editor = Frame(development_view, bg='black')
+    development_view.add(project_hierarchy)
+    development_view.add(code_editor)
+    console_view = Frame(center, bg='yellow')
+    center.add(development_view)
+    center.add(console_view)
+    center.pack(fill=BOTH, expand=True)
+    center_frame.pack(fill=BOTH, expand=True)
+
+
+def create_bottom_frame(root):
+    bottom = Frame(root, bg='blue', width=int(GameCodeWindow.screensize[0] * 0.8), height=20, padx=3, pady=3)
+    bottom.pack(side=BOTTOM, fill=BOTH, expand=False)
+    bottom.lift()

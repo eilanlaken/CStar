@@ -24,7 +24,6 @@ def __main__compiler_debug():
 def __main__ide():
     print('launching ide')
     gamecode_context = context.GameCodeContext()
-    gamecode_context.launch()
 
 
 __main__()
