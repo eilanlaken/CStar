@@ -1,8 +1,10 @@
 import tkinter as tk
+from tkinter import ttk
 import ctypes
 from ide.ui_components.main_menu import *
 from ide.ui_components.console_view import *
 from ide.ui_components.top_toolbar import *
+from ide.ui_components.coding_frame import CodeEditorFrame
 
 user32 = ctypes.windll.user32
 
@@ -16,6 +18,11 @@ class GameCodeWindow:
         self.current_project = current_project
         self.project_preferences = project_preferences
         self.root = tk.Tk()
+        style = ttk.Style()
+        style.theme_create("MyStyle", parent="alt", settings={
+            "TNotebook": {"configure": {"tabmargins": [2, 0, 2, 0]}},
+            "TNotebook.Tab": {"configure": {"padding": [12, 4]}, }})
+        style.theme_use("MyStyle")
         self.root.iconbitmap(r'C:\Users\User\PycharmProjects\CStar\ide\assets\gameCodeIcon.ico')
         self.root.title('[project name place holder].....  - GameCode')
         self.root.geometry('{}x{}'.format(int(GameCodeWindow.screensize[0]*0.8), int(GameCodeWindow.screensize[1]*0.8)))
@@ -42,7 +49,7 @@ def create_center_region(root):
     center = PanedWindow(center_frame, bg='grey10', orient=VERTICAL, sashwidth=8, showhandle=True)
     development_view = PanedWindow(center, bg='white', orient=HORIZONTAL, sashwidth=8, showhandle=True)
     project_hierarchy = Frame(development_view, bg='white', width=300, height=550)
-    code_editor = Frame(development_view, bg='black')
+    code_editor = CodeEditorFrame(development_view)
     development_view.add(project_hierarchy)
     development_view.add(code_editor)
     console_view = Frame(center, bg='yellow')
