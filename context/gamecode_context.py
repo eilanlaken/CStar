@@ -9,4 +9,6 @@ class GameCodeContext:
     def __init__(self):
         self.cstar_compiler = compiler.CStarCompiler()
         self.gamecode_ide_window = ide.GameCodeWindow(self)
+
+    def launch(self):
         self.gamecode_ide_window.launch()

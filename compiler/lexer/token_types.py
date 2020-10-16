@@ -21,10 +21,12 @@ class TokenType(AutoName):
     Book = (4, re.compile(r'\bbook\b'), True)
     Library = (5, re.compile(r'\blibrary\b'), True)
 
-    # omitted
+    # comments and invisible separators
+    BlockComment = (6, re.compile(r'\/\*(.|\n)*\*\/'), False)
     BlockCommentOpen = (6, re.compile(r'\/\*'), False)
     BlockCommentClose = (7, re.compile(r'\*\/'), False)
-    LineComment = (8, re.compile(r'//'), False)
+    # <- captures an entire line comment as a single token ->
+    LineComment = (8, re.compile(r'\/\/(.)*\n'), False)
     WhiteSpace = (9, re.compile(' '), False)
     Tab = (10, re.compile(r'\t'), False)
     NewLine = (11, re.compile(r'\n'), False)

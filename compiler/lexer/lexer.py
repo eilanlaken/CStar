@@ -77,7 +77,7 @@ def omit_insignificant_tokens(tokens):
     for token in tokens:
         if token is not None:
             token_type: TokenType = token[0]
-            if token_type == TokenType.WhiteSpace or token_type == TokenType.Tab or token_type == TokenType.NewLine:
+            if token_type == TokenType.WhiteSpace or token_type == TokenType.Tab:
                 pass
             else:
                 filtered.append(token)
@@ -93,25 +93,35 @@ def detach_comment_blocks(tokens):
         if token is not None:
             token_type: TokenType = token[0]
             if token_type == TokenType.LineComment:
+                comments.append(token)
                 state = 1
+                continue
             if token_type == TokenType.NewLine:
+                comments.append(token)
                 state = 0
+                continue
             if state == 0:
                 filtered.append(token)
             if state == 1:
                 comments.append(token)
 
     # detach multi line comments
+
     state = 0
     for token in tokens:
         if token is not None:
             token_type: TokenType = token[0]
             if token_type == TokenType.BlockCommentOpen:
+                comments.append(token)
                 state = 1
+                continue
             if token_type == TokenType.BlockCommentClose:
+                comments.append(token)
                 state = 0
+                continue
             if state == 0:
                 filtered.append(token)
             if state == 1:
                 comments.append(token)
+
     return filtered, comments

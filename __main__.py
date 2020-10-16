@@ -18,9 +18,9 @@ def __main__compiler_debug():
     program = __get_demo_program()
     lexer = Lexer()
     lexer.tokenize_code(program)
-    comments = detach_comment_blocks(lexer.current_tokens)
+    filtered, comments = detach_comment_blocks(lexer.current_tokens)
     print('*********')
-    for token in lexer.current_tokens:
+    for token in comments:
         if token is not None:
             print(token[1])
 
@@ -28,6 +28,7 @@ def __main__compiler_debug():
 def __main__ide():
     print('launching ide')
     gamecode_context = context.GameCodeContext()
+    gamecode_context.launch()
 
 
 __main__()
