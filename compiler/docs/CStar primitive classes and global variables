@@ -1,0 +1,23 @@
+
+public primitive class vector {
+    float x;
+    float y;
+}
+
+public constant vector x_unit = (1,0);
+public constant vector y_unit = (0,1);
+shared vector compute_buffer;
+
+@ constructor
+public function (float x, float y) returns vector {
+    new vector v;
+    v.x = x;
+    v.y = y;
+} same as (x,y);
+
+@ constructor
+public function (vector b) returns vector {
+    new vector a;
+    a.x = b.x;
+    a.y = b.y;
+} same as a = b;

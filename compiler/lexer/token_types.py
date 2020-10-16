@@ -18,13 +18,13 @@ class TokenType(AutoName):
     Read = (1, re.compile(r'\bread\b'), True)
     Page = (2, re.compile(r'\bpage\b'), True)
     Chapter = (3, re.compile(r'\bchapter\b'), True)
-    Book = (4, re.compile(r'\bbook\b'), True)
-    Library = (5, re.compile(r'\blibrary\b'), True)
+    # Book = (4, re.compile(r'\bbook\b'), True)
+    # Library = (5, re.compile(r'\blibrary\b'), True)
 
     # comments and invisible separators
-    BlockComment = (6, re.compile(r'\/\*(.|\n)*\*\/'), False)
-    BlockCommentOpen = (6, re.compile(r'\/\*'), False)
-    BlockCommentClose = (7, re.compile(r'\*\/'), False)
+    BlockComment = (6, re.compile(r'\/\*+([^/*])*\*+\/'), False)
+    # BlockCommentOpen = (6, re.compile(r'\/\*'), False)
+    # BlockCommentClose = (7, re.compile(r'\*\/'), False)
     # <- captures an entire line comment as a single token ->
     LineComment = (8, re.compile(r'\/\/(.)*\n'), False)
     WhiteSpace = (9, re.compile(' '), False)
@@ -137,7 +137,13 @@ class TokenType(AutoName):
     Atomic = (96, re.compile(r'\batomic\b'), True)
     ProceedWhen = (97, re.compile(r'\bproceed[^\S]+when\b'), True)
     Signal = (98, re.compile(r'\bsignal\b'), True)
-    # annotations
-    At = (99, re.compile(r'\@'), False)
 
+    # annotations
+    AtTemplate = (99, re.compile(r'\b\@template\b'), False)
+    Benchmarked = (100, re.compile(r'\b\@benchmarked\b'), False)
+    Constructor = (101, re.compile(r'\b\@Constructor\b'), False)
+    Implements = (102, re.compile(r'\b\@implements\b'), False)
+    Ordered = (103, re.compile(r'\b\@ordered\b'), False)
+    States = (104, re.compile(r'\b\@states\b'), False)
+    State = (105, re.compile(r'\b\@state\b'), False)
 

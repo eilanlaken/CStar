@@ -1,0 +1,12 @@
+
+HEADER: TITLE READ_STATEMENTS
+
+TITLE: page identifier chapter CHAPTER_PATH ;
+
+CHAPTER_PATH: identifier | identifier . CHAPTER_PATH
+
+READ_STATEMENTS: empty |  READ_STATEMENT READ_STATEMENTS
+
+READ_STATEMENT: read chapter CHAPTER_PATH page identifier ;
+                |
+                read chapter CHAPTER_PATH ;

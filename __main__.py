@@ -18,9 +18,9 @@ def __main__compiler_debug():
     program = __get_demo_program()
     lexer = Lexer()
     lexer.tokenize_code(program)
-    filtered, comments = detach_comment_blocks(lexer.current_tokens)
+
     print('*********')
-    for token in comments:
+    for token in lexer.current_tokens:
         if token is not None:
             print(token[1])
 

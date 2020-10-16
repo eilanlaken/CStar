@@ -33,11 +33,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\basics" />
+      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\functions" />
+      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\statements" />
       <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\annotations" />
       <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\annotations\1.0.0" />
-      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\statements" />
-      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\parser\grammar\classes" />
-      <recent name="C:\Users\User\PycharmProjects\CStar\compiler\docs" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\PycharmProjects\CStar\cstar_examples\containers" />
@@ -149,10 +149,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601918383819" />
-    <state x="722" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602638462440">
+    <state x="722" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602843257631">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="722" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602638462440" />
+    <state x="722" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602843257631" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602385493988">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -161,22 +161,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601918045532" />
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1602826105839">
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1602834219635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602826105839" />
-    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1602826105839">
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602834219635" />
+    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1602834219635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602826105839" />
-    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1602826105839">
+    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602834219635" />
+    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1602834219634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602826105839" />
-    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1602826105839">
+    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602834219634" />
+    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1602834219635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602826105839" />
+    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602834219635" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1602754467837">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

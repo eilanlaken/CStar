@@ -26,11 +26,6 @@ class Lexer:
     def tokenize_code(self, code):
         self.current_tokens = _tokenize_str(code)
 
-    def get_filtered_tokens_stream(self):
-        filtered_tokens = detach_comment_blocks(self.current_tokens)
-        filtered_tokens = omit_insignificant_tokens(filtered_tokens)
-        return filtered_tokens
-
 
 def _tokenize_str(code):
     code_length = len(code)
@@ -84,44 +79,3 @@ def omit_insignificant_tokens(tokens):
     return filtered
 
 
-def detach_comment_blocks(tokens):
-    filtered = []
-    comments = []
-    # detach single line comments
-    state = 0
-    for token in tokens:
-        if token is not None:
-            token_type: TokenType = token[0]
-            if token_type == TokenType.LineComment:
-                comments.append(token)
-                state = 1
-                continue
-            if token_type == TokenType.NewLine:
-                comments.append(token)
-                state = 0
-                continue
-            if state == 0:
-                filtered.append(token)
-            if state == 1:
-                comments.append(token)
-
-    # detach multi line comments
-
-    state = 0
-    for token in tokens:
-        if token is not None:
-            token_type: TokenType = token[0]
-            if token_type == TokenType.BlockCommentOpen:
-                comments.append(token)
-                state = 1
-                continue
-            if token_type == TokenType.BlockCommentClose:
-                comments.append(token)
-                state = 0
-                continue
-            if state == 0:
-                filtered.append(token)
-            if state == 1:
-                comments.append(token)
-
-    return filtered, comments
