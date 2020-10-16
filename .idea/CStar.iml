@@ -2,6 +2,7 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/../CStar">
+      <sourceFolder url="file://$MODULE_DIR$/../CStar" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../CStar/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (venv)" jdkType="Python SDK" />

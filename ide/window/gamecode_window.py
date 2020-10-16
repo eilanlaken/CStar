@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 import ctypes
 from ide.ui_components.main_menu import *
-from ide.ui_components.console_view import *
 from ide.ui_components.top_toolbar import *
 from ide.ui_components.coding_frame import CodeEditorFrame
+from ide.ui_components.project_hierarchy import ProjectHierarchyFrame
 
 user32 = ctypes.windll.user32
 
@@ -32,7 +32,7 @@ class GameCodeWindow:
         self.root.grid_rowconfigure(1, weight=1)
         self.root.grid_columnconfigure(0, weight=1)
         create_top_frame(self.root, application_context)
-        create_center_region(self.root)
+        create_center_region(self.root, application_context)
         create_bottom_frame(self.root)
 
     def launch(self):
@@ -44,11 +44,11 @@ def create_top_frame(root, application_context):
     top_frame.pack(anchor=W, fill=X, expand=FALSE)
 
 
-def create_center_region(root):
+def create_center_region(root, application_context):
     center_frame = Frame(root)
     center = PanedWindow(center_frame, bg='grey10', orient=VERTICAL, sashwidth=8, showhandle=True)
     development_view = PanedWindow(center, bg='white', orient=HORIZONTAL, sashwidth=8, showhandle=True)
-    project_hierarchy = Frame(development_view, bg='white', width=300, height=550)
+    project_hierarchy = ProjectHierarchyFrame(development_view, application_context)
     code_editor = CodeEditorFrame(development_view)
     development_view.add(project_hierarchy)
     development_view.add(code_editor)

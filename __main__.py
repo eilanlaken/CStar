@@ -11,14 +11,18 @@ def __get_demo_program():
 
 
 def __main__():
-    __main__ide()
+    __main__compiler_debug()
 
 
 def __main__compiler_debug():
     program = __get_demo_program()
-    tokens = tokenize_code(program)
-    for token in tokens:
-        print(token)
+    lexer = Lexer()
+    lexer.tokenize_code(program)
+    comments = detach_comment_blocks(lexer.current_tokens)
+    print('*********')
+    for token in lexer.current_tokens:
+        if token is not None:
+            print(token[1])
 
 
 def __main__ide():
