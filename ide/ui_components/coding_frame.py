@@ -50,8 +50,79 @@ class GCNotebook(ttk.Notebook):
     def init_for_debug(self):
         tab = Frame(self)
         self.add(tab, text='okkok', image=self.image, compound=LEFT)
-        text_region = Text(tab, bg='grey20')
+        text_region = TextEditorFrame(tab, bg='grey20')
         text_region.pack(expand=1, fill='both')
+
+
+class TextEditorFrame(Frame):
+    def __init__(self, *args, **kwargs):
+        Frame.__init__(self, *args, **kwargs)
+        self.text = CustomText(self)
+        self.vsb = Scrollbar(self, orient="vertical", command=self.text.yview)
+        self.text.configure(yscrollcommand=self.vsb.set)
+        self.line_numbers = TextLineNumbers(self, width=30)
+        self.line_numbers.attach(self.text)
+
+        self.vsb.pack(side="right", fill="y")
+        self.line_numbers.pack(side="left", fill="y")
+        self.text.pack(side="right", fill="both", expand=True)
+
+        self.text.bind("<<Change>>", self._on_change)
+        self.text.bind("<Configure>", self._on_change)
+
+    def _on_change(self, event):
+        self.line_numbers.redraw()
+
+
+class TextLineNumbers(Canvas):
+    def __init__(self, *args, **kwargs):
+        Canvas.__init__(self, *args, **kwargs)
+        self.text_widget = None
+
+    def attach(self, text_widget):
+        self.text_widget = text_widget
+
+    def redraw(self, *args):
+        self.delete("all")
+
+        i = self.text_widget.index("@0,0")
+        while True:
+            d_line = self.text_widget.dlineinfo(i)
+            if d_line is None:
+                break
+            y = d_line[1]
+            line_num = str(i).split(".")[0]
+            self.create_text(2, y, anchor="nw", text=line_num)
+            i = self.text_widget.index("%s+1line" % i)
+
+
+class CustomText(Text):
+    def __init__(self, *args, **kwargs):
+        Text.__init__(self, *args, **kwargs)
+
+        # create a proxy for the underlying widget
+        self._orig = self._w + "_orig"
+        self.tk.call("rename", self._w, self._orig)
+        self.tk.createcommand(self._w, self._proxy)
+
+    def _proxy(self, *args):
+        # let the actual widget perform the requested action
+        cmd = (self._orig,) + args
+        result = self.tk.call(cmd)
+
+        # generate an event if something was added or deleted,
+        # or the cursor position changed
+        if (args[0] in ("insert", "replace", "delete") or
+            args[0:3] == ("mark", "set", "insert") or
+            args[0:2] == ("xview", "moveto") or
+            args[0:2] == ("xview", "scroll") or
+            args[0:2] == ("yview", "moveto") or
+            args[0:2] == ("yview", "scroll")
+        ):
+            self.event_generate("<<Change>>", when="tail")
+
+        # return what the actual widget returned
+        return result
 
 
 class CodeEditorFrame(Frame):
