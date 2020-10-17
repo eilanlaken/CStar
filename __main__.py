@@ -11,7 +11,7 @@ def __get_demo_program():
 
 
 def __main__():
-    __main__compiler_debug()
+    __main__ide()
 
 
 def __main__compiler_debug():

@@ -1,6 +1,7 @@
 from tkinter import *
 import os
 from tkinter import ttk
+from ide.ui_components.static_assets import *
 
 
 class ProjectHierarchyFrame(Frame):
@@ -20,7 +21,7 @@ class ProjectTree(ttk.Treeview):
         project_directory = r'C:\Users\User\PycharmProjects\CStar\ide\ui_components'
         super().heading('#0', text='Dir：'+project_directory, anchor='w')
         path = os.path.abspath(project_directory)
-        self.img = get_image('3dfile')
+        self.img = get_icon_image('3dfile')
         node = super().insert('', 'end', image=self.img, text=path, open=True)
         self.traverse_dir(node, path)
         self.y_bar.pack(fill=Y, side=RIGHT)
@@ -38,31 +39,8 @@ class ProjectTree(ttk.Treeview):
                 self.traverse_dir(id, full_path)
 
 
-def get_image(icon='directory'):
-    if icon == 'directory':
-        img = PhotoImage(file=r"C:\Users\User\PycharmProjects\CStar\ide\assets\folderIcon.gif")
-        img = img.subsample(4, 4)
-        return img
-    elif icon == 'csfile':
-        img = PhotoImage(file=r"C:\Users\User\PycharmProjects\CStar\ide\assets\pageIcon.gif")
-        img = img.subsample(4, 4)
-        return img
-    elif icon == 'imagefile':
-        img = PhotoImage(file=r"C:\Users\User\PycharmProjects\CStar\ide\assets\imageFormatIcon.gif")
-        img = img.subsample(4, 4)
-        return img
-    elif icon == 'jsonfile':
-        img = PhotoImage(file=r"C:\Users\User\PycharmProjects\CStar\ide\assets\jsonIcon.gif")
-        img = img.subsample(4, 4)
-        return img
-    elif icon == '3dfile':
-        img = PhotoImage(file=r"C:\Users\User\PycharmProjects\CStar\ide\assets\meshIcon.gif")
-        img = img.subsample(4, 4)
-        return img
-
-
 class ImagedLabel(Label):
 
     def __init__(self, root, text, icon='directory'):
-        self.img = get_image(icon)
+        self.img = get_icon_image(icon)
         super().__init__(root, text=text, image=self.img, bg='yellow', compound=LEFT)
